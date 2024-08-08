@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
 import axios from 'axios';
 
 const Login = () => {
-    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
@@ -16,14 +13,13 @@ const Login = () => {
             rollNumber: rollNo.value,
             password: password.value
         };
-        await axios.post("https://anonymous-feed-back-app-1.onrender.com/auth/login", values)
+        await axios.post("???", values)
             .then((res) => {
                 setLoading(false);
                 if (res.data === "user_not_found" || res.data === "password_do_not_match") {
                     alert("Enter valid username/password");
                 } else {
                     localStorage.setItem("token", res.data);
-                    navigate('/Feedback');
                 }
             })
             .catch((err) => {
@@ -33,7 +29,6 @@ const Login = () => {
 
     return (
         <>
-            <Navbar />
             {loading ? <div className='loader'></div> :
                 <div>
                     <div>
@@ -52,7 +47,10 @@ const Login = () => {
                             <input type="submit" value="Login" />
                         </div>
                         <div>
-                            Not a member? <Link to='/Register'>Register</Link>
+                            Not a member?
+                             {/* <Link to='/Register'> */}
+                             Register
+                             {/* </Link> */}
                         </div>
                     </form>
                 </div>

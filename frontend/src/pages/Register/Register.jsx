@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar.jsx';
 import axios from 'axios';
 
 const Register = () => {
-    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const userSubmit = async (event) => {
@@ -30,7 +27,6 @@ const Register = () => {
             await axios.post('https://anonymous-feed-back-app-1.onrender.com/auth/register', values)
                 .then(res => {
                     setLoading(false);
-                    navigate('/');
                 })
                 .catch(err => {
                     console.log(err);
@@ -40,8 +36,7 @@ const Register = () => {
 
     return (
         <>
-            <Navbar />
-            {loading ? <div className="loader"></div> :
+            {loading ? <div className="loader">Loading ...</div> :
                 <div id='container'>
                     <div>
                         Registration Form
@@ -63,7 +58,10 @@ const Register = () => {
                             <input type="submit" value="Register" />
                         </div>
                         <div>
-                            Already a member? <Link to='/'>Sign in</Link>
+                            Already a member? 
+                            {/* <Link to='/'> */}
+                            Sign in
+                            {/* </Link> */}
                         </div>
                     </form>
                 </div>
