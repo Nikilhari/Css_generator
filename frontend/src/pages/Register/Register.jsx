@@ -59,9 +59,9 @@ const Register = () => {
                         </div>
                         <div>
                             Already a member? 
-                            {/* <Link to='/'> */}
+                            <Link to='/'>
                             Sign in
-                            {/* </Link> */}
+                            </Link>
                         </div>
                     </form>
                 </div>
