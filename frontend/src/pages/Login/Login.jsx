@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 const Login = () => {
     const [loading, setLoading] = useState(false);
 
@@ -48,9 +48,9 @@ const Login = () => {
                         </div>
                         <div>
                             Not a member?
-                             {/* <Link to='/Register'> */}
+                             <Link to='/Register'>
                              Register
-                             {/* </Link> */}
+                             </Link>
                         </div>
                     </form>
                 </div>

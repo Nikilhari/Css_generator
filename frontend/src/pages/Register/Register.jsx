@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
@@ -13,6 +14,7 @@ const Register = () => {
         const userConfirmPass = document.getElementById("confirmPassword");
 
         if (userPass.value !== userConfirmPass.value) {
+            setLoading(false);
             const errorMessage = document.createElement('h4');
             errorMessage.innerHTML = "Please recheck your password";
             container.appendChild(errorMessage);
@@ -24,7 +26,7 @@ const Register = () => {
                 rollNumber: rollNo.value,
                 password: userPass.value
             };
-            await axios.post('https://anonymous-feed-back-app-1.onrender.com/auth/register', values)
+            await axios.post('???', values)
                 .then(res => {
                     setLoading(false);
                 })
