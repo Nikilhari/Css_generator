@@ -29,7 +29,7 @@ const Login = () => {
 
     return (
         <>
-            {loading ? <div className='loader'></div> :
+            {loading ? <div className='loader'>Loading ...</div> :
                 <div>
                     <div>
                         Login Form
